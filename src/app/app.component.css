@@ -1,11 +1,45 @@
-header {
-  height: 30vh;
-  background-image: url("/assets/img/header_img.jpg");
-  background-size: cover;
-  background-position: top;
+app-root {
+  display: flex;
+  height: 100%;
+  flex-flow: column;
 }
 
-header img {
-  width: 100%;
+#header {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+#header img {
+  width: 170px;
   height: 100%;
+  margin-right: 30px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 25px;
+}
+
+#header h1 {
+  margin-top: 0;
+  font-size: 52px;
+  font-weight: 800;
+}
+
+#header h2 {
+  font-weight: 500;
+}
+
+#about-covid {
+  padding: 15px;
+  border: dashed 1px #ffc107;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+#about-ctw {
+  padding: 15px;
+  border: dashed 1px #2196f3;
+  border-radius: 15px;
+  margin-bottom: 30px;
 }
