@@ -8,6 +8,7 @@ import { PeopleComponent } from './people/people.component';
 import { LandingComponent } from './landing/landing.component';
 import { SocietyComponent } from './society/society.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { DemographicComponent } from './people/demographic/demographic.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { QuizComponent } from './quiz/quiz.component';
     PeopleComponent,
     LandingComponent,
     SocietyComponent,
-    QuizComponent
+    QuizComponent,
+    DemographicComponent
   ],
   imports: [
     BrowserModule,
