@@ -10,7 +10,6 @@ import { Input } from '@angular/core';
 export class StoriesComponent implements OnInit {
   stories = [];
   @Input() title;
-  temp_title = "People";
   constructor() { }
 
   share() {
@@ -40,6 +39,7 @@ export class StoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.wrapStori();
+    this.title = "People";
   }
 
 }

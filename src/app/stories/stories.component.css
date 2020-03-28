@@ -5,15 +5,23 @@
     align-items: baseline;
     margin-bottom: 70px;
 }
-
-#header .h2{
-    font-size: xx-large;
-}
 #header .button {
       justify-content: center;
       background-color: rgba(128, 128, 128, 0.623);
       position: absolute;
       right: 0;
+}
+
+.backnav {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+#titleheader {
+  font-size: 32px;
+  margin-left: 10px;
+  font-family: sans-serif;
 }
 
 .facebook {
@@ -57,3 +65,16 @@ p {
   border: 1px solid #fce29f;
   border-radius: .25em;
 }
+
+.back_arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+
