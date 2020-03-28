@@ -8,7 +8,7 @@ import { PeopleComponent } from './people/people.component';
 import { LandingComponent } from './landing/landing.component';
 import { SocietyComponent } from './society/society.component';
 import { QuizComponent } from './quiz/quiz.component';
-import { DemographicComponent } from './people/demographic/demographic.component';
+import { DemographicModule } from './people/demographic/demographic.module';
 
 @NgModule({
   declarations: [
@@ -16,13 +16,13 @@ import { DemographicComponent } from './people/demographic/demographic.component
     PeopleComponent,
     LandingComponent,
     SocietyComponent,
-    QuizComponent,
-    DemographicComponent
+    QuizComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DemographicModule
   ],
   providers: [],
   bootstrap: [AppComponent]
