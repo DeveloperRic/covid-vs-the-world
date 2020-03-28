@@ -1,3 +1,21 @@
+<link href="app.component.css" type="text/css" />
+<div id="header">
+  <div class="backnav">
+    <i class="back_arrow" routerLink="/stories"></i>
+    <button id="titleheader" routerLink="/stories"> {{back_nav}}</button>
+  </div>
+</div>
 <form>
-    label
+    <br><br>
+    <div class="form-group">
+        <label for="title" class="title">Title:</label>
+        <br>
+        <input id="title" type="text">
+    </div>
+    <div class="form-group">
+        <label for="story" class="title">Story:</label>
+        <br>
+        <textarea id="story" cols="115" rows="11"></textarea>
+    </div>
+    <button class="btn btn-primary">Submit</button>
 </form>

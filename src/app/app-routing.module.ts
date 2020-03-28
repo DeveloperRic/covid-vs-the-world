@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: "society", component: SocietyComponent },
   { path: "quiz", component: QuizComponent },
   { path: "stories", component: StoriesComponent },
-  { path: "form", component: FormComponent },
+  { path: "form", component: FormComponent, data: {back_nav: "Stories"} },
   { path: "", component: LandingComponent }
 ];
 

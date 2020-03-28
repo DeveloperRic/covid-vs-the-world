@@ -1,44 +1,47 @@
 <div id="header">
   <div class="backnav">
-    <i class="back_arrow" href="./people"></i>
-    <button id="titleheader" href="./people"> {{title}}</button>
+    <i class="back_arrow" routerLink="/people"></i>
+    <button id="titleheader" routerLink="/people"> {{back_nav}}</button>
   </div>
   <button id="form_btn"><a class="btn" href="/form">
       Create Story
     </a>
   </button>
 </div>
+<div class="context">
+  <h1>Stories</h1>
+</div>
 <div *ngFor="let storyObj of stories">
-  <div class="story_title">
-     <h3>
-       <a [title]="storyObj.story.name + ' details'">
-         {{ storyObj.story.name }} - {{ storyObj.story.author }}
-       </a>
-     </h3>
-  </div>
-  <div *ngIf="storyObj.shortDescription">
-    <div *ngIf="!storyObj.expanded">
-      <p>
-        {{storyObj.shortDescription}}...
-      </p>
-      <button (click)="r_press(storyObj)" class="readBtn">
-        Read more
-      </button>
+    <div class="story_title">
+      <h3>
+        <a [title]="storyObj.story.name + ' details'">
+          {{ storyObj.story.name }} - {{ storyObj.story.author }}
+        </a>
+      </h3>
     </div>
-    <div *ngIf="storyObj.expanded">
+    <div *ngIf="storyObj.shortDescription">
+      <div *ngIf="!storyObj.expanded">
+        <p>
+          {{storyObj.shortDescription}}...
+        </p>
+        <button (click)="r_press(storyObj)" class="readBtn">
+          Read more
+        </button>
+      </div>
+      <div *ngIf="storyObj.expanded">
+        <p>
+          {{storyObj.story.description}}
+        </p>
+        <button (click)="r_press(storyObj)" class="readBtn">
+          Read less
+        </button>
+      </div>
+    </div>
+    <div *ngIf="storyObj.story.description.length < 200">
       <p>
         {{storyObj.story.description}}
       </p>
-      <button (click)="r_press(storyObj)" class="readBtn">
-        Read less
-      </button>
-    </div>
-  </div>
-  <div *ngIf="storyObj.story.description.length < 200">
-    <p>
-      {{storyObj.story.description}}
-    </p>
-  </div>      
+    </div> 
   <div class="share-buttons">
     <div id="fb-root"></div>
     <script>
