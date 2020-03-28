@@ -10,6 +10,7 @@ import { SocietyComponent } from './society/society.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { StoriesComponent } from './stories/stories.component';
 import { FormComponent } from './form/form.component';
+import { DemographicModule } from './people/demographic/demographic.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormComponent } from './form/form.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DemographicModule
   ],
   providers: [],
   bootstrap: [AppComponent]

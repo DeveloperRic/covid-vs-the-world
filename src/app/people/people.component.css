@@ -1,22 +1,48 @@
-#buttons {
+#people {
   display: flex;
-  margin-top: 50px;
-  margin-bottom: 70px;
+  margin: 30px 10px 70px 10px;
+  justify-content: center;
 }
 
-.btn-box .btn {
+#people .dem-box {
+  margin-top: 20px;
+}
+
+#people .dem-box.hw {
+  /* Hourly workers */
+}
+#people .dem-box.lif {
+  /* low-income familes */
+}
+#people .dem-box.eld {
+  /* elderly */
+}
+#people .dem-box.std {
+  /* students */
+}
+#people .dem-box.sbu {
+  /* small business owners */
+}
+
+#people .dem-box .dem {
   display: flex;
   width: 100%;
-  height: 100px;
+  height: 170px;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
+  color: unset !important;
   background-color: rgba(128, 128, 128, 0.623);
 }
 
-#buttons .btn-box .btn:hover {
+#people .dem-box .dem:hover {
   width: calc(100% + 10px);
-  height: 105px;
+  height: 175px;
   margin-left: -5px;
   margin-top: -2.5px;
   background-color: rgba(128, 128, 128, 0.323);
+}
+
+.title {
+  text-decoration: underline;
 }
