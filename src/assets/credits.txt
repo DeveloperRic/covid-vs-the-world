@@ -1,0 +1,8 @@
+*** Credits file for covid-vs-the-world ***
+
+
+[=== IMAGES ===]
+
+header_img		Photo by Louis Reed on Unsplash,
+				Photo by CDC on Unsplash
+				[unused Photo by Fusion Medical Animation on Unsplash]
