@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PeopleDemographicComponent } from './demographic.component';
+import { SocietyDemographicComponent } from './demographic.component';
 
 describe('DemographicComponent', () => {
-  let component: PeopleDemographicComponent;
-  let fixture: ComponentFixture<PeopleDemographicComponent>;
+  let component: SocietyDemographicComponent;
+  let fixture: ComponentFixture<SocietyDemographicComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PeopleDemographicComponent ]
+      declarations: [ SocietyDemographicComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PeopleDemographicComponent);
+    fixture = TestBed.createComponent(SocietyDemographicComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

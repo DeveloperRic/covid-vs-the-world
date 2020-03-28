@@ -11,12 +11,22 @@ a {
   color: #2196f3;
 }
 
+app-root {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+app-root .body-content {
+  flex-grow: 1;
+}
+
 body {
   display: flex;
+  min-width: 100%;
   min-height: 100vh;
   margin: 0px;
   padding: 25px 30px 0 30px;
-  flex-direction: column;
 }
 
 body .background {

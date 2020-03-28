@@ -10,7 +10,8 @@ import { SocietyComponent } from './society/society.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { StoriesComponent } from './stories/stories.component';
 import { FormComponent } from './form/form.component';
-import { DemographicModule } from './people/demographic/demographic.module';
+import { PeopleDemographicModule } from './people/demographic/demographic.module';
+import { SocietyDemographicModule } from './society/demographic/demographic.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DemographicModule } from './people/demographic/demographic.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    DemographicModule
+    PeopleDemographicModule,
+    SocietyDemographicModule
   ],
   providers: [],
   bootstrap: [AppComponent]

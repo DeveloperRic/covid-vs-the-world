@@ -4,18 +4,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DemInfo } from './demInfo';
 import { DemDirective } from './dem.directive';
 import { DemComponent } from './dem.component';
-import { DemHourlyComponent } from './dems/dem-hourly.component';
-import { DemLowIncomeComponent } from './dems/dem-low-income.component';
-import { DemElderlyComponent } from './dems/dem-elderly.component';
-import { DemStudentsComponent } from './dems/dem-students.component';
-import { DemSmallBusinessComponent } from './dems/dem-small-business.component';
+import { DemEnvironmentComponent } from './dems/dem-environment.component';
+import { DemCountriesComponent } from './dems/dem-countries.component';
+import { DemTourismComponent } from './dems/dem-tourism.component';
+import { DemStocksTradeComponent } from './dems/dem-stocks-trade.component';
 
 @Component({
   selector: 'app-demographic',
   templateUrl: './demographic.component.html',
   styleUrls: ['./demographic.component.css']
 })
-export class PeopleDemographicComponent implements OnInit {
+export class SocietyDemographicComponent implements OnInit {
   @Input() demInfo: DemInfo;
   @Output() demName: string;
   @ViewChild(DemDirective, { static: true }) demContent: DemDirective;
@@ -35,29 +34,24 @@ export class PeopleDemographicComponent implements OnInit {
   defineDemInfo() {
     const demId = this.route.snapshot.paramMap.get('demographic');
     switch (demId) {
-      case "hourly_workers":
-        this.demInfo = new DemInfo(DemHourlyComponent, {});
-        this.demName = "Hourly Workers";
+      case "countries":
+        this.demInfo = new DemInfo(DemCountriesComponent, {});
+        this.demName = "Countries";
         break;
 
-      case "low_income_families":
-        this.demInfo = new DemInfo(DemLowIncomeComponent, {});
-        this.demName = "Low-Income Families";
-        break;
-
-      case "elderly":
-        this.demInfo = new DemInfo(DemElderlyComponent, {});
+      case "environment":
+        this.demInfo = new DemInfo(DemEnvironmentComponent, {});
         this.demName = "Elderly";
         break;
 
-      case "students":
-        this.demInfo = new DemInfo(DemStudentsComponent, {});
-        this.demName = "Students";
+      case "stocks_and_trade":
+        this.demInfo = new DemInfo(DemStocksTradeComponent, {});
+        this.demName = "Stocks & Trade";
         break;
 
-      case "small_businesses":
-        this.demInfo = new DemInfo(DemSmallBusinessComponent, {});
-        this.demName = "Small Businesses";
+      case "tourism":
+        this.demInfo = new DemInfo(DemTourismComponent, {});
+        this.demName = "Tourism";
         break;
 
       default:
