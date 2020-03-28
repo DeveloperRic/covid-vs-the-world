@@ -1,0 +1,59 @@
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 70px;
+}
+
+#header .h2{
+    font-size: xx-large;
+}
+#header .button {
+      justify-content: center;
+      background-color: rgba(128, 128, 128, 0.623);
+      position: absolute;
+      right: 0;
+}
+
+.facebook {
+  background: blue;
+  color: white;
+
+}
+.twitter {
+  color: white;
+  margin-left: 20px;
+  background: grey;
+}
+
+.readBtn {
+  margin-top: 0px;
+  color: black;
+  border: 1px solid black;
+  border-radius: .25em;
+}
+
+#form_btn {
+  justify-content: center;
+  background-color: rgba(128, 128, 128, 0.623);
+}
+
+.share-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 2ch;
+    border-color: black;
+    
+}
+
+p {
+  margin-bottom: 5px;
+  padding: 2%;
+  background: whitesmoke;
+  color: black;
+  border: 1px solid #fce29f;
+  border-radius: .25em;
+}

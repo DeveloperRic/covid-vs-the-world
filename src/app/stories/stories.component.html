@@ -1,0 +1,74 @@
+<div id="header">
+    <h2> Real Stories : "{{temp_title}}"</h2>
+    <button id="form_btn"><a class="btn" href="/form">
+        Create Story
+      </a>
+    </button>
+</div>
+<div *ngFor="let storyObj of stories">
+  <div class="story_title">
+     <h3>
+       <a [title]="storyObj.story.name + ' details'">
+         {{ storyObj.story.name }} - {{ storyObj.story.author }}
+       </a>
+     </h3>
+  </div>
+  <div *ngIf="storyObj.shortDescription">
+    <div *ngIf="!storyObj.expanded">
+      <p>
+        {{storyObj.shortDescription}}...
+      </p>
+      <button (click)="r_press(storyObj)" class="readBtn">
+        Read more
+      </button>
+    </div>
+    <div *ngIf="storyObj.expanded">
+      <p>
+        {{storyObj.story.description}}
+      </p>
+      <button (click)="r_press(storyObj)" class="readBtn">
+        Read less
+      </button>
+    </div>
+  </div>
+  <div *ngIf="storyObj.story.description.length < 200">
+    <p>
+      {{storyObj.story.description}}
+    </p>
+  </div>      
+  <div class="share-buttons">
+    <div id="fb-root"></div>
+    <script>
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Your share button code -->
+    <button data-href="localhost:4200" data-layout="button_count" type="button" mdbBtn color="fb" class="facebook"
+      mdbWavesEffect>
+      <i
+        class="fab fa-facebook-f left">
+      </i>Facebook
+    </button>
+    <button type="button" mdbBtn color="tw" class="twitter" mdbWavesEffect>
+      <i
+        class="fab fa-twitter left"> 
+        <a 
+          target="_blank"
+          href="https://twitter.com/intent/tweet?text=Covid vs World%0D%0AArticle: {{storyObj.story.name}}%0D%0A
+          {{storyObj.story.description}}"
+          data-size="large">
+          Twitter</a>
+      </i>
+      </button>
+  </div>
+
+    
+</div>
+
