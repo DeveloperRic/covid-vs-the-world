@@ -45,9 +45,13 @@ app-root {
 }
 
 #buttons {
-  display: flex;
   margin-top: 50px;
   margin-bottom: 70px;
+}
+
+#buttons .row {
+  display: flex;
+  justify-content: center;
 }
 
 #buttons .btn-box .btn {
@@ -65,4 +69,8 @@ app-root {
   margin-left: -5px;
   margin-top: -2.5px;
   background-color: rgba(128, 128, 128, 0.323);
+}
+
+#buttons .help {
+  border-radius: 10px;
 }
