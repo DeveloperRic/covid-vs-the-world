@@ -1,0 +1,36 @@
+.back_arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.backnav {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#header .button {
+  justify-content: center;
+  background-color: rgba(128, 128, 128, 0.623);
+  position: absolute;
+  right: 0;
+}
+
+#titleheader {
+  font-size: 32px;
+  margin-left: 10px;
+  font-family: sans-serif;
+}

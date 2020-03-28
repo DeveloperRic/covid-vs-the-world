@@ -9,7 +9,7 @@ import { Input } from '@angular/core';
 })
 export class StoriesComponent implements OnInit {
   stories = [];
-  @Input() title;
+  @Input() back_nav;
   constructor() { }
 
   share() {
@@ -39,7 +39,7 @@ export class StoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.wrapStori();
-    this.title = "People";
+    this.back_nav = "People";
   }
 
 }
