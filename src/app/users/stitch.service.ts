@@ -37,26 +37,21 @@ export class StitchService {
     return StitchService.client.auth.isLoggedIn;
   }
 
-  isLoggedInWithGoogle(){
+  isLoggedInWithGoogle() {
     return (
-        StitchService.client.auth.isLoggedIn &&
-        StitchService.client.auth.user.loggedInProviderName != 'anon-user'
-      );
+      this.isLoggedIn() &&
+      StitchService.client.auth.user.loggedInProviderType != 'anon-user'
+    );
   }
 
-  
-  loginToView() {
-    if(!StitchService.client.auth.isLoggedIn){
-      Stitch.defaultAppClient.auth
-        .loginWithCredential(new AnonymousCredential())
-        .then(user => {
-          console.log(`Logged in as anonymous user with id: ${user.id}`);
-        })
-        .catch(console.error);
+  loginToView(): Promise<StitchUser> {
+    if (!this.isLoggedIn()) {
+      return Stitch.defaultAppClient.auth
+        .loginWithCredential(new AnonymousCredential());
     }
   }
 
-  loginToPost(){
+  loginToPost() {
     const credential = new GoogleRedirectCredential(
       environment.STITCH_REDIRECT_URL
     );

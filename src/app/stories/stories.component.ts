@@ -71,9 +71,19 @@ export class StoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getStories();
+    this.checkLoggedIn();
     this.back_nav = "People";
+  }
+
+  checkLoggedIn() {
     this.isLoggedInWithGoogle = this.stitchService.isLoggedInWithGoogle();
+    if (!this.stitchService.isLoggedIn()) {
+      this.stitchService.loginToView()
+        .then(() => this.getStories())
+        .catch(console.error);
+    } else {
+      this.getStories();
+    }
   }
 
   createStory() {
