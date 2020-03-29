@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Stitch, RemoteMongoClient, StitchAppClient, GoogleRedirectCredential, RemoteMongoDatabase, StitchUser } from 'mongodb-stitch-browser-sdk'
+import {
+  Stitch,
+  RemoteMongoClient,
+  StitchAppClient,
+  GoogleRedirectCredential,
+  AnonymousCredential,
+  RemoteMongoDatabase,
+  StitchUser
+} from 'mongodb-stitch-browser-sdk';
 import { User } from "./user";
 import { Story } from '../form/story';
 
@@ -29,8 +37,29 @@ export class StitchService {
     return StitchService.client.auth.isLoggedIn;
   }
 
-  login() {
-    const credential = new GoogleRedirectCredential(environment.STITCH_REDIRECT_URL);
+  isLoggedInWithGoogle(){
+    return (
+        StitchService.client.auth.isLoggedIn &&
+        StitchService.client.auth.user.loggedInProviderName != 'anon-user'
+      );
+  }
+
+  
+  loginToView() {
+    if(!StitchService.client.auth.isLoggedIn){
+      Stitch.defaultAppClient.auth
+        .loginWithCredential(new AnonymousCredential())
+        .then(user => {
+          console.log(`Logged in as anonymous user with id: ${user.id}`);
+        })
+        .catch(console.error);
+    }
+  }
+
+  loginToPost(){
+    const credential = new GoogleRedirectCredential(
+      environment.STITCH_REDIRECT_URL
+    );
     StitchService.client.auth.loginWithRedirect(credential);
   }
 

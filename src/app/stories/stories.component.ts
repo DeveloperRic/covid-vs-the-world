@@ -10,7 +10,7 @@ import { sampleStories } from '../samplestories';
 })
 export class StoriesComponent implements OnInit {
   @Output() stories = [];
-  @Output() loggedIn: boolean;
+  @Output() isLoggedInWithGoogle: boolean;
   @Input() back_nav;
 
   constructor(
@@ -73,11 +73,11 @@ export class StoriesComponent implements OnInit {
   ngOnInit(): void {
     this.getStories();
     this.back_nav = "People";
-    this.loggedIn = this.stitchService.isLoggedIn();
+    this.isLoggedInWithGoogle = this.stitchService.isLoggedInWithGoogle();
   }
 
   createStory() {
-    if (!this.stitchService.isLoggedIn()) {
+    if (!this.stitchService.isLoggedInWithGoogle()) {
       this.router.navigateByUrl("/login");
     } else {
       this.router.navigateByUrl("/form");

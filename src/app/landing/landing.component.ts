@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StitchService } from "../users/stitch.service";
+
 
 @Component({
   selector: 'app-landing',
@@ -8,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class LandingComponent implements OnInit {
   title = 'Covid-19 vs The World';
 
-  constructor() { }
+  constructor(private stitchService: StitchService) {}
 
   ngOnInit(): void {
+    this.stitchService.loginToView();
   }
-
 }
