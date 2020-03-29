@@ -10,12 +10,15 @@ import { Router } from '@angular/router';
 })
 export class StoriesComponent implements OnInit {
   stories = [];
+  //collection from database remote||local
+  dbStories;
   @Input() back_nav;
+  
 
   constructor(private router: Router) { }
 
   share() {
-    window.alert('The product has been shared!');
+   
   }
 
   isMember(){
