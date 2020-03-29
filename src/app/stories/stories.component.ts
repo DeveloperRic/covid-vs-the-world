@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { stories } from '../samplestories';
 import { Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stories',
@@ -10,12 +11,29 @@ import { Input } from '@angular/core';
 export class StoriesComponent implements OnInit {
   stories = [];
   @Input() back_nav;
-  constructor() { }
+
+  constructor(private router: Router) { }
 
   share() {
     window.alert('The product has been shared!');
   }
 
+  isMember(){
+    //grab user identification if any
+      //is authenticated
+        //if not logged in
+          //login template
+        //isbanned
+          //tell user to fuck off
+        //else - already logged in
+          //low it
+      //login template
+
+      //For now
+    this.router.navigate(["/", 'form']);
+  }
+
+  //Create stories array
   wrapStori() {
     this.stories = stories.map(cur_story => {
       let shortDescription;
@@ -29,6 +47,7 @@ export class StoriesComponent implements OnInit {
       
     });
   }
+
 
   r_press(storyObj){
     if(storyObj.expanded)

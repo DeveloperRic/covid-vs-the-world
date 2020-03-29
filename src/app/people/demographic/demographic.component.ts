@@ -24,6 +24,7 @@ export class DemographicComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private componentFactoryResolver: ComponentFactoryResolver) { }
+    back_nav = "People";
 
   ngOnInit() {
     const demInfoDefined = this.defineDemInfo();
@@ -75,6 +76,10 @@ export class DemographicComponent implements OnInit {
 
     const componentRef = viewContainerRef.createComponent(componentFactory);
     (<DemComponent>componentRef.instance).data = this.demInfo.data;
+  }
+
+  goBack(){
+      this.router.navigate(["/", 'people']);
   }
 
 }

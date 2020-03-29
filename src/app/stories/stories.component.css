@@ -2,7 +2,6 @@
 .facebook {
   background: blue;
   color: white;
-
 }
 .twitter {
   color: white;
@@ -19,7 +18,7 @@
 
 #form_btn {
   justify-content: center;
-  background-color: rgba(128, 128, 128, 0.623);
+  background-color: #dcedc8;
 }
 
 .share-buttons {

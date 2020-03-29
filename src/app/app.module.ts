@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,13 +21,14 @@ import { DemographicModule } from './people/demographic/demographic.module';
     SocietyComponent,
     QuizComponent,
     StoriesComponent,
-    FormComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    DemographicModule
+    DemographicModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

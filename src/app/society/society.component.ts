@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-society',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SocietyComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
+  back_nav = "Home"
 
   ngOnInit(): void {
+  }
+  goBack() {
+    this.router.navigate(["/"]);
   }
 
 }
