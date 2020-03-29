@@ -79,24 +79,35 @@ export class StitchService {
 
     return new Promise((resolve, reject) => {
       const stitchUser = this.getStitchUser();
+      this.getAtlasUser(stitchUser, {_id: 1})
+        .then(atlasUser => {
+          const onDeleted = () => {
+            StitchService.client.auth.removeUser()
+              .then(resolve)
+              .catch(reject);
+          };
 
-      StitchService.db.collection(StitchService.USERS_COL)
-        .deleteMany({ _id: stitchUser.id })
-        .then(result => {
-          if (result.deletedCount < 1) {
-            return reject(new Error("Failed to delete user from Atlas"));
+          if (atlasUser) {
+            StitchService.db.collection(StitchService.USERS_COL)
+              .deleteMany({ _id: stitchUser.id })
+              .then(result => {
+                if (result.deletedCount < 1) {
+                  return reject(new Error("Failed to delete user from Atlas"));
+                }
+                onDeleted();
+              })
+              .catch(reject);
+          } else {
+            onDeleted();
           }
-          StitchService.client.auth.removeUser()
-            .then(resolve)
-            .catch(reject);
         })
         .catch(reject);
     });
   }
 
-  getAtlasUser(stitchUser: StitchUser): Promise<unknown> {
+  getAtlasUser(stitchUser: StitchUser, projection = null): Promise<unknown> {
     return StitchService.db.collection(StitchService.USERS_COL)
-      .findOne({ _id: stitchUser.id });
+      .findOne({ _id: stitchUser.id }, { projection: projection });
   }
 
   createAtlasUser(stitchUser: StitchUser): Promise<unknown> {
