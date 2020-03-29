@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import { StitchService } from "../users/stitch.service";
 
 @Component({
@@ -13,6 +14,7 @@ export class StoriesComponent implements OnInit {
   @Input() back_nav;
 
   constructor(
+    private titleService: Title,
     private router: Router,
     private stitchService: StitchService
   ) { }
@@ -69,6 +71,7 @@ export class StoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Real people's stories | covid-vs-the-world");
     this.checkLoggedIn();
     this.back_nav = "People";
   }

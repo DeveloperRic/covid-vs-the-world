@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-people',
@@ -8,11 +9,16 @@ import { Router } from '@angular/router';
 })
 export class PeopleComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private titleService: Title,
+    private router: Router
+  ) { }
   back_nav = "Home"
 
   ngOnInit(): void {
+    this.titleService.setTitle("People | covid-vs-the-world");
   }
+
   goBack() {
     this.router.navigate(["/"]);
   }

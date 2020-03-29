@@ -1,5 +1,6 @@
 import { Component, Input, Output, OnInit, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { DemInfo } from './demInfo';
 import { DemDirective } from './dem.directive';
@@ -21,14 +22,16 @@ export class PeopleDemographicComponent implements OnInit {
   @ViewChild(DemDirective, { static: true }) demContent: DemDirective;
 
   constructor(
+    private titleService: Title,
     private router: Router,
     private route: ActivatedRoute,
     private componentFactoryResolver: ComponentFactoryResolver) { }
-    back_nav = "People";
+  back_nav = "People";
 
   ngOnInit() {
     const demInfoDefined = this.defineDemInfo();
     if (demInfoDefined) {
+      this.titleService.setTitle(`covid affects ${this.demName} | covid-vs-the-world`)
       this.loadComponent();
     }
   }
@@ -78,8 +81,8 @@ export class PeopleDemographicComponent implements OnInit {
     (<DemComponent>componentRef.instance).data = this.demInfo.data;
   }
 
-  goBack(){
-      this.router.navigate(["/", 'people']);
+  goBack() {
+    this.router.navigate(["/", 'people']);
   }
 
 }

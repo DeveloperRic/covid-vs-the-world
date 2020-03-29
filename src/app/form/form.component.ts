@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
   private filter = new Filter()
 
   constructor(
-    private browserTitle: Title,
+    private titleService: Title,
     private router: Router,
     private stitchService: StitchService
   ) { }
@@ -57,11 +57,12 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Submit a story | covid-vs-the-world");
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.title && changes.title.previousValue != changes.title.currentValue) {
-      this.browserTitle.setTitle(changes.title.currentValue);
+      this.titleService.setTitle(`${changes.title.currentValue} - story | covid-vs-the-world`);
     }
   }
 
