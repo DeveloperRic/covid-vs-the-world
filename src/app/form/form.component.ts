@@ -34,9 +34,8 @@ export class FormComponent implements OnInit {
     }
     if (window.confirm("Post this story? You won't be able to modify it afterwards.")) {
       const story = new Story(
-        "people",
         this.title,
-        this.stitchService.getStitchUser().id,
+        this.stitchService.getStitchUser().profile.name,
         this.body
       );
       this.stitchService.postStory(story)

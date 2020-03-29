@@ -21,8 +21,8 @@
 <div *ngFor="let storyObj of stories">
   <div class="story_title">
     <h3>
-      <a [title]="storyObj.story.name + ' details'">
-        {{ storyObj.story.name }} - {{ storyObj.story.author }}
+      <a>
+        {{ storyObj.story.title }} - {{ storyObj.story.author }}
       </a>
     </h3>
   </div>
@@ -71,7 +71,7 @@
     </button>
     <button type="button" mdbBtn color="tw" class="twitter" mdbWavesEffect>
       <i class="fab fa-twitter left">
-        <a target="_blank" href="https://twitter.com/intent/tweet?text=Covid vs World%0D%0AArticle: {{storyObj.story.name}}%0D%0A
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Covid vs World%0D%0AArticle: {{storyObj.story.title}}%0D%0A
           {{storyObj.story.description}}" data-size="large">
           Twitter</a>
       </i>

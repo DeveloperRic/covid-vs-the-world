@@ -3,7 +3,6 @@ export class Story {
   public timeposted: number;
 
   constructor(
-    public type: string,
     public title: string,
     public author: string,
     public description: string
@@ -13,7 +12,6 @@ export class Story {
 
   static fromJSON(json): Story {
     const story = new Story(
-      json.type,
       json.title,
       json.author,
       json.description

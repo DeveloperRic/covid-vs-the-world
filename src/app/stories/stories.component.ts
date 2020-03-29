@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { StitchService } from "../users/stitch.service";
-import { sampleStories } from '../samplestories';
 
 @Component({
   selector: 'app-stories',
@@ -54,7 +53,6 @@ export class StoriesComponent implements OnInit {
       .then(storyList => {
         this.stories =
           storyList.map(storyMapper)
-            .concat(sampleStories.map(storyMapper));
       })
       .catch(err => {
         console.error(err);
