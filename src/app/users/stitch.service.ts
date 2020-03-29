@@ -38,7 +38,7 @@ export class StitchService {
   }
 
   isLoggedInWithGoogle(){
-    return (
+      return (
         StitchService.client.auth.isLoggedIn &&
         StitchService.client.auth.user.loggedInProviderName != 'anon-user'
       );
