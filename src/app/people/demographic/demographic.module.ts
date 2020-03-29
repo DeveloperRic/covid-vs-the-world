@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DemDirective } from './dem.directive';
-import { DemographicComponent } from './demographic.component';
+import { PeopleDemographicComponent } from './demographic.component';
 import { DemHourlyComponent } from './dems/dem-hourly.component';
 import { DemLowIncomeComponent } from './dems/dem-low-income.component';
 import { DemElderlyComponent } from './dems/dem-elderly.component';
@@ -11,7 +11,7 @@ import { DemSmallBusinessComponent } from './dems/dem-small-business.component';
 
 @NgModule({
   declarations: [
-    DemographicComponent,
+    PeopleDemographicComponent,
     DemDirective,
     DemHourlyComponent,
     DemLowIncomeComponent,
@@ -21,7 +21,7 @@ import { DemSmallBusinessComponent } from './dems/dem-small-business.component';
   ],
   imports: [CommonModule],
   exports: [
-    DemographicComponent,
+    PeopleDemographicComponent,
     DemDirective,
     DemHourlyComponent,
     DemLowIncomeComponent,
@@ -30,4 +30,4 @@ import { DemSmallBusinessComponent } from './dems/dem-small-business.component';
     DemSmallBusinessComponent
   ]
 })
-export class DemographicModule { }
+export class PeopleDemographicModule { }
