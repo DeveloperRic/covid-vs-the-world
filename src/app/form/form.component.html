@@ -5,17 +5,15 @@
     <button id="titleheader" routerLink="/stories"> {{back_nav}}</button>
   </div>
 </div>
-<form>
-    <br><br>
-    <div class="form-group">
-        <label for="title" class="title">Title:</label>
-        <br>
-        <input id="title" type="text">
-    </div>
-    <div class="form-group">
-        <label for="story" class="title">Story:</label>
-        <br>
-        <textarea id="story" cols="115" rows="11"></textarea>
-    </div>
-    <button class="btn btn-primary">Submit</button>
-</form>
+<br><br>
+<div class="form-group">
+    <label for="title" class="title">Title:</label>
+    <br>
+    <input id="title" type="text" [(ngModel)]="title">
+</div>
+<div class="form-group">
+    <label for="story" class="title">Story:</label>
+    <br>
+    <textarea id="story" cols="115" rows="11" [(ngModel)]="body"></textarea>
+</div>
+<button class="btn btn-primary" (click)="verifyContent()">Submit</button>

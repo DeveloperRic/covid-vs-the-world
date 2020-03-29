@@ -18,11 +18,13 @@ export class SocietyDemographicComponent implements OnInit {
   @Input() demInfo: DemInfo;
   @Output() demName: string;
   @ViewChild(DemDirective, { static: true }) demContent: DemDirective;
+  back_nav = "Society"
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private componentFactoryResolver: ComponentFactoryResolver) { }
+    
 
   ngOnInit() {
     const demInfoDefined = this.defineDemInfo();
@@ -69,6 +71,9 @@ export class SocietyDemographicComponent implements OnInit {
 
     const componentRef = viewContainerRef.createComponent(componentFactory);
     (<DemComponent>componentRef.instance).data = this.demInfo.data;
+  }
+  goBack() {
+    this.router.navigate(["/", 'society']);
   }
 
 }
