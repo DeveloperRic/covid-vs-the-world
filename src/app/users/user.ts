@@ -1,7 +1,6 @@
 export class User {
   constructor(
-    public fname: string,
-    public lname: string,
-    public lastPostTime: string
+    public name: string,
+    public lastPostTime: number
   ) { }
 }

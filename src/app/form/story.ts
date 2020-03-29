@@ -1,6 +1,6 @@
 export class Story {
   public id: string;
-  public timeposted: string;
+  public timeposted: number;
 
   constructor(
     public type: string,
@@ -8,7 +8,7 @@ export class Story {
     public author: string,
     public description: string
   ) {
-    this.timeposted = Date.now().toString();
+    this.timeposted = Date.now();
   }
 
   static fromJSON(json): Story {
