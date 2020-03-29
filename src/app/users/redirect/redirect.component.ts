@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import { StitchService } from '../stitch.service';
 
 @Component({
@@ -11,11 +12,14 @@ export class LoginRedirectComponent implements OnInit {
   circleSpinner = "<div class='lds-ring'><div></div><div></div><div></div><div></div></div>";
 
   constructor(
+    private titleService: Title,
     private stitchService: StitchService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Verifying your login | covid-vs-the-world");
+
     const failHandler = err => {
       console.error(err);
       window.alert("Authentication failed");

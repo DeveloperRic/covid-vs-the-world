@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Router } from "@angular/router";
+import { Title } from '@angular/platform-browser';
 import { StitchService } from '../stitch.service';
 
 @Component({
@@ -15,11 +16,14 @@ export class LoginDeletedComponent implements OnInit {
   private interval;
 
   constructor(
+    private titleService: Title,
     private router: Router,
     private stitchService: StitchService
   ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Deleting your account | covid-vs-the-world");
+
     this.stitchService.deleteAccount()
       .then(() => {
         this.deleted = true;

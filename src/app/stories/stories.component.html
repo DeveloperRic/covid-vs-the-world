@@ -7,9 +7,6 @@
     <button class="border-secondary" [hidden]="!isLoggedInWithGoogle">
       <a class="color-primary" href="./login">Logout</a>
     </button>
-    <button class="border-secondary" [hidden]="isLoggedInWithGoogle">
-      <a class="color-primary" href="./login">Login to create a story</a>
-    </button>
     <button id="form_btn" (click)="createStory()" class="bg-accent color-inverse">
       Create Story
     </button>
