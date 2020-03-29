@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loggedInUser = this.stitchService.getUser();
+    this.loggedInUser = this.stitchService.getStitchUser();
     this.isLoggedIn = this.stitchService.isLoggedIn();
   }
 

@@ -16,9 +16,18 @@ export class LoginRedirectComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.stitchService.handleRedirect(() => {
-      this.router.navigateByUrl("/stories");
-    });
+    const failHandler = err => {
+      console.error(err);
+      window.alert("Authentication failed");
+    };
+
+    this.stitchService.handleRedirect()
+      .then(stitchUser => {
+        this.stitchService.createAtlasUser(stitchUser)
+          .then(() => this.router.navigateByUrl("/stories"))
+          .catch(failHandler)
+      })
+      .catch(failHandler)
   }
 
 }

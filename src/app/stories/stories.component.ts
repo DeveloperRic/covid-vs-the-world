@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { StitchService } from "../users/stitch.service";
-import { stories } from '../samplestories';
+import { sampleStories } from '../samplestories';
 
 @Component({
   selector: 'app-stories',
@@ -9,7 +9,7 @@ import { stories } from '../samplestories';
   styleUrls: ['./stories.component.css']
 })
 export class StoriesComponent implements OnInit {
-  stories = [];
+  @Output() stories = [];
   @Output() loggedIn: boolean;
   @Input() back_nav;
 
@@ -19,49 +19,59 @@ export class StoriesComponent implements OnInit {
   ) { }
 
   share() {
-   
+
   }
 
-  isMember(){
+  isMember() {
     //grab user identification if any
-      //is authenticated
-        //if not logged in
-          //login template
-        //isbanned
-          //tell user to fuck off
-        //else - already logged in
-          //low it
-      //login template
+    //is authenticated
+    //if not logged in
+    //login template
+    //isbanned
+    //tell user to fuck off
+    //else - already logged in
+    //low it
+    //login template
 
-      //For now
+    //For now
     this.router.navigate(["/", 'form']);
   }
 
   //Create stories array
-  wrapStori() {
-    this.stories = stories.map(cur_story => {
+  getStories() {
+    const storyMapper = cur_story => {
       let shortDescription;
-      if(cur_story.description.length > 200){
+      if (cur_story.description.length > 200) {
         shortDescription = cur_story.description.substr(0, 200);
         return { story: cur_story, expanded: false, shortDescription: shortDescription };
       }
-      else{
-        return { story: cur_story, expanded: false, shortDescription: null};
+      else {
+        return { story: cur_story, expanded: false, shortDescription: null };
       }
-      
-    });
+
+    }
+    this.stitchService.getStories()
+      .then(storyList => {
+        this.stories =
+          storyList.map(storyMapper)
+            .concat(sampleStories.map(storyMapper));
+      })
+      .catch(err => {
+        console.error(err);
+        window.alert("Failed to get stories");
+      })
   }
 
 
-  r_press(storyObj){
-    if(storyObj.expanded)
+  r_press(storyObj) {
+    if (storyObj.expanded)
       storyObj.expanded = false;
-    else 
+    else
       storyObj.expanded = true;
   }
 
   ngOnInit(): void {
-    this.wrapStori();
+    this.getStories();
     this.back_nav = "People";
     this.loggedIn = this.stitchService.isLoggedIn();
   }

@@ -1,4 +1,4 @@
-export const stories = [
+export const sampleStories = [
     {
         id: "12345678",
         name: 'Studios Seb',

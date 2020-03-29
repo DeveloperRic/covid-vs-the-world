@@ -1,5 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import * as Filter from "bad-words";
+import { StitchService } from '../users/stitch.service';
+import { Story } from './story';
 
 @Component({
   selector: 'app-form',
@@ -7,34 +11,64 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  constructor() { }
-  back_nav = "Stories"
-  title = ""
-  body = ""
+  back_nav = "Stories";
+  title = "";
+  body = "";
+  private filter = new Filter()
 
+  constructor(
+    private browserTitle: Title,
+    private router: Router,
+    private stitchService: StitchService
+  ) { }
 
-  verifyContent(){
-    // [^!@#$%^&*]* infront of the () would mean anywhere in the text but that can cause problems w big words
-    // containing these words
-    var rx = new RegExp("\\b(Fuck|Fuck you|Bitch|Bastered|Cunt|Nigger|Hor|Nazi)\\b", "i");
-    if(this.title == "" || this.body == ""){
-      window.alert('**Empty Boxes**');
-      this.clearData();
-      return;
+  verifyContent() {
+    let cleaned = false;
+    if (this.filter.isProfane(this.title)) {
+      this.title = this.filter.clean(this.title);
+      cleaned = true;
     }
-    if(rx.test(this.body) || rx.test(this.title)){
-      // window.alert('**Profanity Warning**');
-      window.alert("body: " + this.body + " title: " + this.title );
-      this.clearData();
+    if (this.filter.isProfane(this.body)) {
+      this.body = this.filter.clean(this.body);
+      cleaned = true;
+    }
+    if (window.confirm("Post this story? You won't be able to modify it afterwards.")) {
+      const story = new Story(
+        "people",
+        this.title,
+        this.stitchService.getStitchUser().id,
+        this.body
+      );
+      this.stitchService.postStory(story)
+        .then(() => {
+          let successStr = "Your story was posted! You can view it in stories.";
+          if (cleaned) {
+            successStr += "\nHeads up, your post was cleaned because it contained some restricted words." +
+              " Restricted parts of those words have been replaced with '*' characters";
+          }
+          window.alert(successStr);
+          this.router.navigateByUrl("/stories");
+        })
+        .catch(err => {
+          console.error(err);
+          window.alert("Sorry we weren't able to post your story. Please try again after some time");
+        });
     }
     //add to remote rb and local db
   }
+
   ngOnInit(): void {
   }
-  clearData(){
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.title && changes.title.previousValue != changes.title.currentValue) {
+      this.browserTitle.setTitle(changes.title.currentValue);
+    }
+  }
+
+  clearData() {
     this.title = "";
     this.body = "";
   }
-
 
 }
