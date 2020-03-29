@@ -39,13 +39,13 @@ export class StitchService {
 
   isLoggedInWithGoogle() {
     return (
-      this.isLoggedIn() &&
-      StitchService.client.auth.user.loggedInProviderType != 'anon-user'
+      StitchService.client.auth.isLoggedIn &&
+      StitchService.client.auth.user.loggedInProviderName != 'anon-user'
     );
   }
 
   loginToView(): Promise<StitchUser> {
-    if (!this.isLoggedIn()) {
+    if (!StitchService.client.auth.isLoggedIn) {
       return Stitch.defaultAppClient.auth
         .loginWithCredential(new AnonymousCredential());
     }
