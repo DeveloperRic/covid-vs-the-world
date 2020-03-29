@@ -1,4 +1,12 @@
+<div id="header">
+  <div class="backnav">
+    <i class="back_arrow" (click)="goBack()"></i>
+    <button id="titleheader" (click)="goBack()"> {{back_nav}}</button>
+  </div>
+</div>
+
 <h1>Covid-19 affects <span class="title color-amber">{{demName}}</span></h1>
+
 <div id="demContent">
   <ng-template dem-content></ng-template>
 </div>
