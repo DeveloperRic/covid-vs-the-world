@@ -445,6 +445,10 @@ body.darkmode .bg-secondary-strong {
   color: #ffa000;
 }
 
+.color-green {
+  color: #4caf50;
+}
+
 .text-shaddow {
   text-shadow: 2px 2px #212121;
 }
