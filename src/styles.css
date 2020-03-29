@@ -409,6 +409,10 @@ body.darkmode .bg-secondary-strong {
   border: 1px solid #eeeeee !important;
 }
 
+.border-red {
+  border: 1px solid #f44336 !important;;
+}
+
 .color-accent {
   color: #2196f3 !important;
 }

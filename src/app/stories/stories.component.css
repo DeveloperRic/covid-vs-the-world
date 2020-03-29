@@ -17,9 +17,12 @@
   border-radius: .25em;
 }
 
+button + #form_btn {
+  margin-left: 15px;
+}
+
 #form_btn {
   justify-content: center;
-  background-color: rgba(128, 128, 128, 0.623);
 }
 
 .share-buttons {

@@ -1,0 +1,31 @@
+#login {
+  height: 100%;
+}
+
+#login .main {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+#login .main button + button {
+  margin-top: 70px;
+}
+
+#login .main h3 {
+  margin-bottom: 70px;
+}
+
+#login .main img {
+  width: 200px;
+  margin-bottom: 100px;
+}
+
+#login .main img:hover {
+  border: solid 1px #bbdefb;
+  border-radius: 4px;
+  cursor: pointer;
+}

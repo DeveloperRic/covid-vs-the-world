@@ -1,0 +1,14 @@
+<div id="login" class="container">
+  <div class="main" [hidden]="!isLoggedIn">
+      <h2>You are logged in as {{loggedInUser.profile.name}}</h2>
+      <h3>Would you like to logout?</h3>
+      <button class="bg-accent color-inverse" (click)="logout()">Log me out</button>
+      <button class="border-red" (click)="deleteAccount()">Delete my account</button>
+  </div>
+  <div class="main" [hidden]="isLoggedIn">
+      <h2>Please login/create an account</h2>
+      <h3>We need this info to verify each user and prevent spam :)</h3>
+      <img (click)="login()" src="/assets/img/btn_google_signin_light_normal_web@2x.png">
+      <p class="color-muted">Details needed: email address, firstname, lastname, age (must be at least 13)</p>
+  </div>
+</div>

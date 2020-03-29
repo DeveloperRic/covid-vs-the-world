@@ -10,6 +10,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Covid-19 vs The World';
+  horzSpinner = "<div class='lds-ellipsis'><div></div><div></div><div></div><div></div></div>";
+  circleSpinner = "<div class='lds-ring'><div></div><div></div><div></div><div></div></div>";
+  smallCircleSpinner = "<div class='spinner-box'><div class='circle-border'><div class='circle-core'></div></div></div>";
 
   // prepareRoute(outlet: RouterOutlet) {
   //   return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];

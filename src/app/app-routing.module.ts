@@ -8,6 +8,9 @@ import { SocietyDemographicComponent } from "./society/demographic/demographic.c
 import { QuizComponent } from "./quiz/quiz.component";
 import { StoriesComponent } from "./stories/stories.component";
 import { FormComponent } from "./form/form.component";
+import { LoginComponent } from "./users/login/login.component";
+import { LoginRedirectComponent } from "./users/redirect/redirect.component";
+import { LoginDeletedComponent } from "./users/deleted/deleted.component";
 
 const routes: Routes = [
   { path: "people", component: PeopleComponent },
@@ -17,6 +20,9 @@ const routes: Routes = [
   { path: "quiz", component: QuizComponent },
   { path: "stories", component: StoriesComponent },
   { path: "form", component: FormComponent },
+  { path: "login", component: LoginComponent },
+  { path: "login/redirect", component: LoginRedirectComponent },
+  { path: "login/deleted", component: LoginDeletedComponent },
   { path: "**", component: LandingComponent }
 ];
 

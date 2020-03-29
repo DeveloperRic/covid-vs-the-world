@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { StitchService } from "../users/stitch.service";
 import { stories } from '../samplestories';
-import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-stories',
@@ -9,8 +10,13 @@ import { Input } from '@angular/core';
 })
 export class StoriesComponent implements OnInit {
   stories = [];
+  @Output() loggedIn: boolean;
   @Input() back_nav;
-  constructor() { }
+
+  constructor(
+    private router: Router,
+    private stitchService: StitchService
+  ) { }
 
   share() {
     window.alert('The product has been shared!');
@@ -40,6 +46,15 @@ export class StoriesComponent implements OnInit {
   ngOnInit(): void {
     this.wrapStori();
     this.back_nav = "People";
+    this.loggedIn = this.stitchService.isLoggedIn();
+  }
+
+  createStory() {
+    if (!this.stitchService.isLoggedIn()) {
+      this.router.navigateByUrl("/login");
+    } else {
+      this.router.navigateByUrl("/form");
+    }
   }
 
 }

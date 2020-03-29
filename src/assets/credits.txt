@@ -3,6 +3,8 @@
 
 [=== IMAGES ===]
 
-header_img		Photo by Louis Reed on Unsplash,
-				Photo by CDC on Unsplash
-				[unused Photo by Fusion Medical Animation on Unsplash]
+header_img  Photo by Louis Reed on Unsplash,
+			Photo by CDC on Unsplash
+			[unused Photo by Fusion Medical Animation on Unsplash]
+
+btn_google_signin_light_normal_web@2x.png   https://developers.google.com/identity/branding-guidelines
