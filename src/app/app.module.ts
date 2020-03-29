@@ -13,6 +13,7 @@ import { StoriesComponent } from './stories/stories.component';
 import { FormComponent } from './form/form.component';
 import { PeopleDemographicModule } from './people/demographic/demographic.module';
 import { SocietyDemographicModule } from './society/demographic/demographic.module';
+import { HelpComponent } from './help/help.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SocietyDemographicModule } from './society/demographic/demographic.modu
     SocietyComponent,
     QuizComponent,
     StoriesComponent,
-    FormComponent
+    FormComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ import { FormComponent } from "./form/form.component";
 import { LoginComponent } from "./users/login/login.component";
 import { LoginRedirectComponent } from "./users/redirect/redirect.component";
 import { LoginDeletedComponent } from "./users/deleted/deleted.component";
+import { HelpComponent } from "./help/help.component";
 
 const routes: Routes = [
   { path: "people", component: PeopleComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "login/redirect", component: LoginRedirectComponent },
   { path: "login/deleted", component: LoginDeletedComponent },
+  { path: "help", component: HelpComponent },
   { path: "**", component: LandingComponent }
 ];
 
