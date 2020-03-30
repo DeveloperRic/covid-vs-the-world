@@ -134,7 +134,7 @@ export class StitchService {
   getStories(): Promise<Story[]> {
     return new Promise((resolve, reject) => {
       StitchService.db.collection(StitchService.STORIES_COL)
-        .find({}, { limit: 1000 })
+        .find({}, { limit: 100 })
         .toArray()
         .then(docs => resolve(docs.map(doc => Story.fromJSON(doc))))
         .catch(reject);
