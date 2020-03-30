@@ -46,7 +46,7 @@ export class SocietyDemographicComponent implements OnInit {
 
       case "environment":
         this.demInfo = new DemInfo(DemEnvironmentComponent, {});
-        this.demName = "Elderly";
+        this.demName = "The Environment";
         break;
 
       case "stocks_and_trade":
