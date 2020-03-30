@@ -56,7 +56,7 @@ export class SocietyDemographicComponent implements OnInit {
 
       case "tourism":
         this.demInfo = new DemInfo(DemTourismComponent, {});
-        this.demName = "Tourism";
+        this.demName = "Tourism and the Global South";
         break;
 
       default:

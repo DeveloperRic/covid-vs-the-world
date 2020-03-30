@@ -73,7 +73,7 @@ export class StoriesComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle("Real people's stories | covid-vs-the-world");
     this.checkLoggedIn();
-    this.back_nav = "People";
+    this.back_nav = "Home";
   }
 
   checkLoggedIn() {
