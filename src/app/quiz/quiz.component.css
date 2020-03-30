@@ -4,6 +4,10 @@
     margin-top: 0px;
 }
 
+.answer{
+  text-align: center;
+}
+
 .nextQ{
     display: flex;
     width: 100%;
@@ -21,6 +25,8 @@
   display: flex;
   justify-content: center;
 }
+
+
 
 #next{
     background: dodgerblue;
@@ -86,7 +92,21 @@
   .btn {
     margin-top: 20px;
     border-radius: 10px;
+    font-size: 50%;
     width: 100px;
     height: 100px;
+  }
+  .btn:hover {
+    width: 105px;
+    height: 100px;
+    border-radius: 10px
+  }
+
+  .answer{
+    font-size: small;
+  }
+
+  .titles {
+    font-size: medium;
   }
 }

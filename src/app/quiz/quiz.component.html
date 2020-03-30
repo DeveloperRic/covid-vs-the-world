@@ -7,7 +7,7 @@
 <h1>Covid-19 <span class="title color-amber">Quiz</span></h1>
 <div *ngIf="!quizCompleted && !questionCompleted" class="mainBody">
   <div class="row"> 
-    <h1>{{question}}</h1>
+    <h1 class="titles">{{question}}</h1>
   </div>
   <div class="row" >
     <button id="btn1" class = "btn" (click)="answerSelected(0)">
@@ -28,10 +28,10 @@
 </div>
 <div *ngIf="!quizCompleted && questionCompleted" class="mainbody nextQ">
   <div>
-    <h1 >{{mark}}</h1>
+    <h1 class="titles">{{mark}}</h1>
   </div>
   <div>
-    <h3 id="answer">{{answer}}</h3>
+    <p id="answer" class="answer">{{answer}}</p>
   </div>
     <button id="next" (click)="nextQuestion()">
       Next
