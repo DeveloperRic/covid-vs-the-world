@@ -117,6 +117,7 @@ export class StitchService {
           if (atlasUser) return reject(new Error("Atlas user already exists"));
 
           const mongoUser = new User(
+            stitchUser.id,
             stitchUser.profile.name,
             Date.now()
           );
