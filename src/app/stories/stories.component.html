@@ -47,25 +47,6 @@
     </p>
   </div>
   <div class="share-buttons">
-    <div id="fb-root"></div>
-    <script>
-      (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-
-    </script>
-
-    <!-- Your share button code -->
-    <button data-href="localhost:4200" data-layout="button_count" type="button" mdbBtn color="fb" class="facebook"
-      mdbWavesEffect>
-      <i class="fab fa-facebook-f left">
-      </i>Facebook
-    </button>
     <button type="button" mdbBtn color="tw" class="twitter" mdbWavesEffect>
       <i class="fab fa-twitter left">
         <a target="_blank" href="https://twitter.com/intent/tweet?text=Covid vs World%0D%0AArticle: {{storyObj.story.title}}%0D%0A
