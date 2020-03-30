@@ -1,3 +1,10 @@
+@import url("../app.component.css");
+
+.bigbox{
+ display: flex;
+ flex-direction: column;
+}
+
 #help {
   width: 85%;
 }
