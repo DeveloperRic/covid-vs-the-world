@@ -1,1 +1,92 @@
 @import url("../app.component.css");
+
+.mainBody{
+    margin-top: 0px;
+}
+
+.nextQ{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#answer{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+#next{
+    background: dodgerblue;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+#goBack{
+  background: dodgerblue;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+  color: white;
+}
+
+.btn {
+  margin: 30px;
+  width: 200px;
+  height: 200px;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.btn:hover {
+  width: 205px;
+  height: 205px;
+  border-radius: 10px
+}
+
+#btn1{
+    background: dodgerblue;
+}
+#btn2 {
+  background: maroon;
+}
+#btn3 {
+  background: midnightblue;
+}
+#btn4 {
+  background: red;
+}
+
+
+/* Large Phone/Tablet screen */
+@media (max-width: 600px) {
+  #header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #header img {
+    margin-bottom: 25px;
+  }
+
+  #header h1 {
+    font-size: 42px;
+  }
+
+  .btn {
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+  }
+}
