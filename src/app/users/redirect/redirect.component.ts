@@ -27,10 +27,17 @@ export class LoginRedirectComponent implements OnInit {
 
     this.stitchService.handleRedirect()
       .then(stitchUser => {
-        () => this.router.navigateByUrl("/stories")
-        // this.stitchService.createAtlasUser(stitchUser)
-        //   .then(() => this.router.navigateByUrl("/stories"))
-        //   .catch(failHandler)
+        this.stitchService.getAtlasUser(stitchUser)
+          .then(mongoUser => {
+            if (!mongoUser) {
+              this.stitchService.createAtlasUser(stitchUser)
+                .then(() => this.router.navigateByUrl("/stories"))
+                .catch(failHandler)
+            } else {
+              this.router.navigateByUrl("/stories");
+            }
+          })
+          .catch(failHandler);
       })
       .catch(failHandler)
   }
