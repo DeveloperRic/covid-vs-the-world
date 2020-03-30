@@ -119,7 +119,7 @@ h2 {
 
 h3 {
   min-width: 100%;
-  margin-top: 0px;
+  margin-top: 5px;
   font: 700 16px "Montserrat";
 }
 
@@ -155,6 +155,14 @@ table .error, form .error {
   h1 {
     font-size: 24px;
   }
+}
+
+/* ------------------------------------- */
+
+#references {
+  margin-top: 35px;
+  font-size: 10px;
+  /* color: #9e9e9e; */
 }
 
 /* ------------------------------------- */
