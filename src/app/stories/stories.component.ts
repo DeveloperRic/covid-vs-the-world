@@ -54,7 +54,9 @@ export class StoriesComponent implements OnInit {
     this.stitchService.getStories()
       .then(storyList => {
         this.stories =
-          storyList.map(storyMapper)
+          storyList.sort((a, b) => {
+            return b.timeposted - a.timeposted;
+          }).map(storyMapper)
       })
       .catch(err => {
         console.error(err);
